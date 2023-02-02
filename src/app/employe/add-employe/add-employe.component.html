@@ -1,0 +1,35 @@
+<div class="col-md-12 col-md-offset-2 scroll">
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+    
+     
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" class="form-control" formControlName="nom" id="nom"   >
+      </div>
+      <div class="form-group">
+        <label>Prénom </label>
+        <input type="text" class="form-control" formControlName="prenom" id="prenom">
+      </div>
+      <div class="form-group">
+        <label>Email </label>
+        <input type="text" class="form-control" formControlName="mail" id="mail">
+      </div>
+      <div class="form-group">
+        <label>Date d'Embauche</label>  
+        <input type="date" class="form-control" formControlName="dateEmbauche" id="dateEmbauche">
+      </div>
+      <div class="form-group">
+        <label>Departement </label>
+        <select class="form-control" formControlName="idDep" id="idDep" (change)="onSelectedDep($any($event.target).value)">
+        <option value="0">-Select-</option>
+        <option *ngFor="let item of DepartementList" value="{{item.id}}">{{item.libDep}}</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+        <button type="button" class="btn btn-outline-dark ml-1"[mat-dialog-close]><i class="fa fa-database"></i> close</button>
+  
+    </div>
+    </form>
+    </div>
